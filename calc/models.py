@@ -7,7 +7,7 @@ class User(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
     descri = models.TextField(default="Default description")
-    img= models.ImageField(upload_to='pics')
+    # img= models.ImageField(upload_to='pics')
 
 
 class Customer(models.Model):

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Customer Info</h1>
+    <div>
+      {% for customer in userdata %}
+      <div>
+        Customer Name: {{customer.customer_name}} <br />
+        Customer Email:{{customer.customer_email}} <br />
+        Incharge Name:{{customer.incharge_name}} <br />
+        Incharge Email: {{customer.incharge_email}} <br />
+        GSTIN:{{customer.GSTIN}} <br />
+      </div>
+    </div>
+    {% empty%}
+    <li>No customer found........</li>
+    {% endfor%}
+  </body>
+</html>

@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,request
-from  .models import User,Customer
-from .forms import CustomerForm
+from  .models import User
+from .models import Customer
+from .forms import CustomerForm,UserForm
 # Create your views here.
 
 def home(request):
@@ -29,3 +30,20 @@ def create_customer(request):
     else:
         form = CustomerForm()
     return render(request,'create_customer.html', {'form': form})
+
+
+def create_user(request):
+    if request.method == 'POST':
+        userForm = UserForm(request.POST)
+        if userForm.is_valid():
+            userForm.save()
+            return redirect('/user')
+    else:
+        userForm = UserForm()
+    return render(request,'create_user.html',{'userform':userForm})
+
+
+
+def Customer_view(request):
+    userData = Customer.objects.all()
+    return render(request,"user_info.html",{"userdata":userData})
