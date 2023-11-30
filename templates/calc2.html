@@ -1,4 +1,12 @@
+{% for user in dest %}
 <div>
-  <h1>Hello, {{name}}</h1>
-  <h3>have a nice day</h3>
+  Username: {{ user.name }}<br />
+  Email: {{ user.email }} <br />
+  Description:{{user.descri}}
 </div>
+<div>
+  <!-- <img src="{{user.img.url}}" alt="" /> -->
+</div>
+{% empty %}
+<li>No users found.</li>
+{% endfor %}
